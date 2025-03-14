@@ -7,7 +7,7 @@ from matplotlib.animation import FuncAnimation
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from collections import Counter
 packet_counts = Counter({"TCP": 0, "UDP": 0, "ICMP": 0, "Other": 0})
-capturing = False  # Flag to start/stop sniffing
+capturing = False  
 
 def process_packet(packet):
     if not capturing:
@@ -25,7 +25,6 @@ def process_packet(packet):
             protocol = "Other"
         packet_counts[protocol] += 1 
         message = f"{protocol} Packet: {src_ip} -> {dst_ip}"
-
         log_text.insert(tk.END, message + "\n")
         log_text.see(tk.END)
 
